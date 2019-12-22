@@ -178,6 +178,7 @@ function animations() {
                 max = oneShip.scene.position.x
         })
         camera.position.x = -400 + max
+        controls.target.x = max;
         controls.update();
         if (max < -2500) {
             pauseAnime = true
