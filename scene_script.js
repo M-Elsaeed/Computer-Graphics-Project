@@ -46,6 +46,36 @@ function onLoadFlagGLTF(gltf) {
 loader.load('./models/flag/scene.gltf', onLoadFlagGLTF, undefined, errorHandle);
 
 
+function onLoadCityGLTF(gltf) {
+    gltf.scene.scale.set(1, 1, 1)
+    gltf.scene.rotation.y += Math.PI * (5 / 2)
+    gltf.scene.position.x -= 2800
+    gltf.scene.position.y -= 380
+    gltf.scene.position.z += 600
+    scene.add(gltf.scene);
+}
+loader.load('./models/persian_city/scene.gltf', onLoadCityGLTF, undefined, errorHandle);
+
+function onLoadCity2GLTF(gltf) {
+    gltf.scene.scale.set(1, 1, 1)
+    gltf.scene.rotation.y += Math.PI * (5 / 2)
+    gltf.scene.position.x -= 3900
+    gltf.scene.position.y -= 100
+    gltf.scene.position.z += 600
+    scene.add(gltf.scene);
+}
+loader.load('./models/persian_city/scene.gltf', onLoadCity2GLTF, undefined, errorHandle);
+
+
+function onLoadDockGLTF(gltf) {
+    gltf.scene.scale.set(22, 22,22)
+    gltf.scene.rotation.y -= Math.PI * (12 / 5)
+    gltf.scene.position.x += 40
+    gltf.scene.position.y -= 720
+    gltf.scene.position.z -= 20
+    scene.add(gltf.scene);
+}
+loader.load('./models/puente_del_general_serrador_tenerife/scene.gltf', onLoadDockGLTF, undefined, errorHandle);
 
 var container;
 var camera, scene, renderer, light;
@@ -66,7 +96,7 @@ function init() {
     light = new THREE.DirectionalLight(0xffffff, 2);
     scene.add(light);
     // Water Size
-    var waterGeometry = new THREE.PlaneBufferGeometry(10000, 10000);
+    var waterGeometry = new THREE.PlaneBufferGeometry(100000, 100000);
 
     water = new Water(
         waterGeometry,
